@@ -1,0 +1,44 @@
+.btn-publicar{
+        margin-top: 7px;
+  }
+	.main-post{
+		margin: 0 auto;
+	    width: 800px;
+	    margin-top: 50px;
+	}
+	.post{
+
+		    border: 1px solid #D6CBCB;
+		    border-radius: 10px;
+		    padding: 13px;
+        margin-bottom: 10px;
+
+	}
+	
+	.icon-img{
+		    background-image: url(icons.png);
+		    background-repeat: no-repeat;
+		    background-size: auto;
+		   
+		    height: 48px;
+    		width: 48px;
+    		display: block;
+	}
+	.u-mgu{
+		 background-position: 0 -826px;
+	}
+	.u-men{
+		 background-position: 0 -875px;
+	}
+	.u-mdi{
+		 background-position: 0 -777px;
+	}
+	.u-mas{
+		 background-position: 0 -973px;
+	}
+	.u-ment{
+		 background-position: 0 -924px;
+	}
+	.u-meno{
+		 background-position: 0 -679px;
+	}
