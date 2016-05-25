@@ -7,6 +7,8 @@
 	<!-- Latest compiled and minified CSS & JS -->
 	<link rel="stylesheet" href="public/css/bootstrap.css">
 	<link rel="stylesheet" href="estilos.css">
+	 
+	  <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
 
 </head>
 <body>
@@ -29,7 +31,7 @@
 
       	<div class="container-post">
       			
-
+			<img src="public/img/load.gif" alt="">
 
       	</div>
 		</div>

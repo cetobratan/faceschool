@@ -1,5 +1,10 @@
 $(function(){
 
+
+
+
+
+
 var _template = '<div class="post">'+
 		'<div class="row">'+
 			'<div class="col-md-1">'+
@@ -26,15 +31,33 @@ var _template = '<div class="post">'+
 		'</div>'+
 '</div>';
 
-	
+listado_fire();
+function listado_fire(){
+	 
+	myFirebaseRef = new Firebase("https://blinding-heat-5189.firebaseio.com/");
+ 
+	myFirebaseRef.on("value", function(data) {
+		var post = data.val();
+		var _p = post.post;
+		var _array = [];
+		$.each(_p, function(x, col) {
+		var _html = _template.replace(':nombre:',col.nombre)
+	  	                      .replace(':fecha:',col.fecha)
+	  	                      .replace(':texto:',col.texto)
+	  	    	      
+	  	$('.container-post').prepend(_html)
+	  });
+
+	})
+}
 	
 
 
 $('.btn-publicar').on('click', function(event) {
 	event.preventDefault();
+
 	
 listado(function(data){
-
 	var _array = [];
 	$.each(data, function(x, col) {
 		var _html = _template.replace(':nombre:',col.nombre)
@@ -52,10 +75,16 @@ listado(function(data){
 
 
 var listado = function(list) {
+
+
 	jQuery.getJSON('post.js', function(json) {
 	  var _post = json.post;
 	  list(_post);
 });
+
+
+
+
 
 
 
