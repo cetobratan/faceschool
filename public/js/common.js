@@ -33,6 +33,54 @@ var Common = {
 		return  new Firebase(URL)
 	},
 
+	_getArray:function(array_push){
+
+		var _array_base = {
+      "avatar": "f1.jpg",
+      "nombre": "Augusto",
+      "fecha": "24-05-2016",
+      "hora": "10:08",
+      "texto": '',
+      "likes": [
+        {
+          "icon": "icon1.jpg",
+          "tipo": "MGusta",
+          "cantidad": 0
+        },
+        {
+          "icon": "icon2.jpg",
+          "tipo": "MEncanta",
+          "cantidad": 0
+        },
+        {
+          "icon": "icon3.jpg",
+          "tipo": "MDivierte",
+          "cantidad": 0
+        },
+        {
+          "icon": "icon4.jpg",
+          "tipo": "MAsombra",
+          "cantidad": 0
+        },
+        {
+          "icon": "icon5.jpg",
+          "tipo": "MEntristese",
+          "cantidad": 0
+        },
+        {
+          "icon": "icon5.jpg",
+          "tipo": "MEnoja",
+          "cantidad": 0
+        }
+      		  ]
+   	     };
+
+   	     
+
+		return $.extend( _array_base, array_push );
+
+	},
+
 	_getPost:function(myfuncion){
  		var fire = Common._gerUrl();
 		fire.on("value", function(data) {
@@ -45,18 +93,15 @@ var Common = {
 		  	 
 		  })
 	},
-	_insertPost:function(myfuncion){
+	_insertPost:function(array,callback){
  		var fire = Common._gerUrl();
-		fire.on("value", function(data) {
 
-			var post = data.val()
-
-			var _p = post.post
-			 
-		  	myfuncion(_p);      
-		  	 
-		  })
-	},
+ 		var post = fire.child("post");
+		post.push().set(array,function(error){
+			callback(error)
+		});
+		
+	}
 
 
 };

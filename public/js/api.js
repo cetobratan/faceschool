@@ -3,7 +3,23 @@ $(function(){
 
 $('.btn-publicar').on('click', function(event) {
 	event.preventDefault();
+	var _mensaje = $('#mensaje').val();
+	
+	var _array = Common._getArray({
+		"texto":_mensaje
 
+	});
+
+	Common._insertPost(_array,function(_error){
+		console.log(_error)
+		if (!_error) {
+			console.log(_error)
+		}else{
+			console.log(_error)
+		}
+
+
+	});
 
 });
 

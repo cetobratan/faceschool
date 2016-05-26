@@ -19,7 +19,7 @@
 
       <div class="row">
           <div class="col-md-12">
-            <textarea name="" id="input" class="form-control" rows="3" required="required"></textarea>
+            <textarea name="" id="mensaje" class="form-control" rows="3" required="required"></textarea>
           </div>
           <div class="col-md-12">
               <div class="pull-right">
