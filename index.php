@@ -6,7 +6,7 @@
 	<title></title>
 	<!-- Latest compiled and minified CSS & JS -->
 	<link rel="stylesheet" href="public/css/bootstrap.css">
-	<link rel="stylesheet" href="estilos.css">
+	<link rel="stylesheet" href="public/css/estilos.css">
 	 
 	  <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
 
@@ -39,7 +39,9 @@
 
 
 <script src="public/js/jquery.js"></script>
-<script src="api.js"></script>
+<script src="public/js/common.js"></script>
+<script src="public/js/api.js"></script>
+
  
 
 

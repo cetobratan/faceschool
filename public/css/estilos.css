@@ -16,8 +16,8 @@
 	}
 	
 	.icon-img{
-		    background-image: url(icons.png);
-		    background-repeat: no-repeat;
+		    background-image: url(../img/icons.png);
+		    
 		    background-size: auto;
 		   
 		    height: 48px;
