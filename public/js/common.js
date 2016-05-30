@@ -1,4 +1,4 @@
-var _template = '<div class="post" data-id=":post_id:">'+
+var _template = '<div class="post" >'+
 		'<div class="row">'+
 			'<div class="col-md-1">'+
 				'<img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTHSgCIl9AhqSb3GLNVDhnKtgcMf20ddr1V0MyZ5ssNMVIunP93cNzBhA" alt="">'+
@@ -28,26 +28,22 @@ var _template = '<div class="post" data-id=":post_id:">'+
               '<div class="panel-heading">'+
                 '<p>8Thiago AH, Katty Sanchez Gonzales y 6 personas más</p>'+
               '</div>'+
-              '<div class="panel-body">'+
-                '<div class="col-md-1">'+
-                    '<img width="40" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTHSgCIl9AhqSb3GLNVDhnKtgcMf20ddr1V0MyZ5ssNMVIunP93cNzBhA" alt="">'+
-                '</div>'+
-                '<div class="col-md-11">'+
-                    '<p>'+
-                      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam aliquid dignissimos, iure, sed optio id, quas veniam molestias eum excepturi, earum assumenda velit eligendi voluptas est repellendus quisquam magnam ut.'+
-                      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero dolor, illo aut enim corrupti, nesciunt consequatur? Nam saepe incidunt at, odit rem temporibus eveniet illo vel magnam porro aliquid minima!'+
-                    '</p>'+
-                '</div>'+
-              '</div>'+
+              '<div class="panel-body main-comment">:comment:</div>'+
               '<div class="panel-footer over">'+
                 '<div class="col-md-12">'+
-                    '<input type="text" class="form-control input-comment" >'+
+                    '<input type="text" class="form-control input-comment"  data-id=":post_id:">'+
                 '</div>'+
               '</div>'+
         '</div>'+
       '</div>'+
 '</div>';
 
+var _template2 ='<div class="col-md-1">'+
+                    '<img width="40" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTHSgCIl9AhqSb3GLNVDhnKtgcMf20ddr1V0MyZ5ssNMVIunP93cNzBhA" alt="">'+
+                '</div>'+
+                '<div class="col-md-11">'+
+                    '<p>:comment:</p>'+
+                '</div>';
 
 const URL = 'https://blinding-heat-5189.firebaseio.com/';
  
@@ -119,15 +115,39 @@ var Common = {
 		  	 
 		  })
 	},
-	_insertPost:function(array,callback){
+	_insertPost:function(array,f_error){
  		var fire = Common._gerUrl();
 
- 		var post = fire.child("post");
-		post.push().set(array,function(error){
-			callback(error)
+ 		var _firebase = fire.child("post");
+		_firebase.push().set(array,function(error){
+			f_error(error)
 		});
 		
+	},
+	_updatePost:function(id,array,f_error){
+ 		var _firebase = Common._getTable('post',id)
+		_firebase.update(array,function(error){
+			f_error(error)
+		});
+
+ 
+		
+	},
+	_removePost:function(id){
+ 		var remove = Common._getTable('post',id)
+		remove.remove();
+
+ 
+		
+	},
+	_getTable:function(table,key){
+
+		return new Firebase('https://blinding-heat-5189.firebaseio.com/'+table+'/' + key)
+		 
 	}
+
+
+
 
 
 };
