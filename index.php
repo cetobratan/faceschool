@@ -27,24 +27,39 @@
               </div>
           </div>
       </div>
+
       <hr>
 
-      	<div class="container-post">
+      
+      
+
+
+     	<div class="container-post">
       			
 			<img src="public/img/load.gif" alt="">
 
-      	</div>
+     	</div>
 		</div>
 </div>
 
 
+
+
+
+
+
+
+
 <script src="public/js/jquery.js"></script>
+ 
+
 <script src="public/js/common.js"></script>
 <script src="public/js/api.js"></script>
 
  
-
+ 
 
 </body>
 </html>
 
+ 
